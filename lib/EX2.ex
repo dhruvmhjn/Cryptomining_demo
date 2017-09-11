@@ -12,7 +12,7 @@ defmodule MyTest do
                                             # And we still get great failure messages, yipee!
                                             # 1) test_assert (MyTest)
                                             #    ** (ExUnit.ExpectationError)
-              j                              #                 expected: 2
+              jl                              #                 expected: 2
                                             #      to be equal to (==): 3
   end
 
