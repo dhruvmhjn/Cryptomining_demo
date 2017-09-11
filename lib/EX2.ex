@@ -13,6 +13,8 @@ defmodule MyTest do
                                             # 1) test_assert (MyTest)
                        csalk                     #    ** (ExUnit.ExpectationError)
               j                              #                 expected: 2
+                                            #    ** (ExUnit.ExpectationError)
+              jl                              #                 expected: 2
                                             #      to be equal to (==): 3
   end
 
