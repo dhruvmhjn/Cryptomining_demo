@@ -1,34 +1,21 @@
-# README #
+# Dos1
 
-This README would normally document whatever steps are necessary to get your application up and running.
- This is the forst test
+**TODO: Add description**
 
- this is tge fissakjqw r sync back test
-### What is this repository for? ###
+## Installation
 
-Sec
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+by adding `dos1` to your list of dependencies in `mix.exs`:
 
-last test change
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+```elixir
+def deps do
+  [
+    {:dos1, "~> 0.1.0"}
+  ]
+end
+```
 
-### How do I getnhjvhjs  xsa set up? ###
+Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
+be found at [https://hexdocs.pm/dos1](https://hexdocs.pm/dos1).
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
