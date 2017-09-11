@@ -11,7 +11,7 @@ defmodule MyTest do
     #assert 1 + 1 == 3                      # Elixir is smart! No need for assert_equal, assert_gte, etc.
                                             # And we still get great failure messages, yipee!
                                             # 1) test_assert (MyTest)
-                                            #    ** (ExUnit.ExpectationError)
+                       csalk                     #    ** (ExUnit.ExpectationError)
               j                              #                 expected: 2
                                             #      to be equal to (==): 3
   end
