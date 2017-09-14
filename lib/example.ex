@@ -23,15 +23,13 @@ defmodule Example do
   def process({_, [options], _}) do
     IO.puts Myspawn.printhello
     IO.puts "You want #{options} leading zeroes"
-
-    IO.puts "Now lets try to compute hash a"
-    
-    IO.puts Base.encode16(:crypto.hash(:sha256, "foobar"))
-
-    IO.puts random_string(10)
+    IO.puts "Now lets try to compute a random string hash"
+    rand_string = random_string(10)
+    IO.puts "dhruvmhjn"<>rand_string
+    IO.puts Base.encode16(:crypto.hash(:sha256, "dhruvmhjn"<>rand_string))
   end
   defp random_string(length) do
-    :crypto.strong_rand_bytes(length) |> Base.url_encode64
+    Base.encode64(:crypto.strong_rand_bytes(length))
   end
 
   defp parse_args(args) do
