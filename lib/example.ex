@@ -21,6 +21,7 @@ defmodule Example do
   end
 
   def process({_, [options], _}) do
+    IO.puts Myspawn.printhello
     IO.puts "You want #{options} leading zeroes"
 
     IO.puts "Now lets try to compute hash a"
