@@ -23,7 +23,7 @@ defmodule Example do
   def process({_, [options], _}) do
     IO.puts "You want #{options} leading zeroes"
 
-    IO.puts "Now lets try to compute hash"
+    IO.puts "Now lets try to compute hash a"
     
     IO.puts Base.encode16(:crypto.hash(:sha256, "foobar"))
 
