@@ -27,7 +27,15 @@ defmodule Example do
     
     IO.puts Base.encode16(:crypto.hash(:sha256, "foobar"))
 
+    IO.puts random_string(10)
   end
+  defp random_string(length) do
+    
+
+    :crypto.strong_rand_bytes(length) |> Base.url_encode64
+  
+  end
+
   defp parse_args(args) do
      cmdarg = OptionParser.parse(args)
      cmdarg
