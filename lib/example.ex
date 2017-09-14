@@ -22,6 +22,9 @@ defmodule Example do
 
   def process({_, [options], _}) do
     IO.puts "You want #{options} leading zeroes"
+
+    IO.puts "Now lets try to compute hash"
+
   end
   defp parse_args(args) do
      cmdarg = OptionParser.parse(args)
