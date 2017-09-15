@@ -2,6 +2,12 @@
 
 **TODO: Add description**
 
+[15:44, 9/14/2017] +1 (352) 745-9854: Task                        
+[15:44, 9/14/2017] +1 (352) 745-9854: Genserver                        
+[15:44, 9/14/2017] +1 (352) 745-9854: Agent                        
+[15:49, 9/14/2017] Ashvini Patel 😻: ErActor                        
+[16:10, 9/14/2017] Ashvini Patel 😻: Check no of zeroes. Recurse
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
