@@ -2,11 +2,16 @@
 
 **TODO: Add description**
 
-[15:44, 9/14/2017] +1 (352) 745-9854: Task                        
-[15:44, 9/14/2017] +1 (352) 745-9854: Genserver                        
-[15:44, 9/14/2017] +1 (352) 745-9854: Agent                        
-[15:49, 9/14/2017] Ashvini Patel 😻: ErActor                        
-[16:10, 9/14/2017] Ashvini Patel 😻: Check no of zeroes. Recurse
+Things to explore, Dhruv:
+1) Task                        
+2) Genserver                        
+3) Agent
+4) http://culttt.com/2016/06/06/understanding-recursion-tail-call-optimisation-elixir/
+
+Ashvini's work:
+                        
+1) ErActor                        
+2)Check no of zeroes. Recurse
 
 ## Installation
 
