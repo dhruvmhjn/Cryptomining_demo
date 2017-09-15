@@ -22,6 +22,8 @@ defmodule Example do
 
   def process({_, [options], _}) do
     #Myspawn.createprocess
+    x = [options]
+    IO.puts x
     IO.puts "You want #{options} leading zeroes"
     IO.puts "Now lets try to compute a random string hash"
     abc = :rand.uniform(40)
@@ -29,7 +31,9 @@ defmodule Example do
     rand_string = random_string(abc+10)
     IO.puts "dhruvmhjn"<>rand_string
     IO.puts Base.encode16(:crypto.hash(:sha256, "dhruvmhjn"<>rand_string))
+    #process(,x,) MAKE THIS TAIL RECURSIVE, CANT CALL PROCESS 
   end
+
   defp random_string(length) do
     Base.encode64(:crypto.strong_rand_bytes(length))
   end
