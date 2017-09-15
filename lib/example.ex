@@ -9,8 +9,6 @@ defmodule Example do
   end
 
   def process({[], [k_value], []}) do
-        
-    x = [k_value]
     abc = :rand.uniform(40)
     rand_string = random_string(abc+10)
     input_srt= "dhruvmhjn"<>rand_string
@@ -20,7 +18,7 @@ defmodule Example do
       IO.puts input_srt<>"\t"<>hashed_srt
     end
     
-    process({[], x, []})
+    process({[],[k_value], []})
   end
 
   defp random_string(length) do
