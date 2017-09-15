@@ -11,7 +11,8 @@ Things to explore, Dhruv:
 Ashvini's work:
                         
 1) ErActor                        
-2)Check no of zeroes. Recurse
+2) Check no of zeroes. https://robots.thoughtbot.com/back-to-basics-regular-expressions
+3) Recurse
 
 ## Installation
 

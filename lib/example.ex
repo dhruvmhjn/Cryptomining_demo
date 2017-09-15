@@ -33,7 +33,7 @@ defmodule Example do
     regex = ~r/^0{#{k_value}}/
     checkvalid(Regex.match?(regex,hashed_srt),input_srt)
     #process(,x,) MAKE THIS TAIL RECURSIVE, CANT CALL PROCESS 
-    #process({_, [k_value], _})
+    process({_, x, _})
   end
 
   def checkvalid(true,input) do
