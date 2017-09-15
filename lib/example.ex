@@ -21,10 +21,12 @@ defmodule Example do
   end
 
   def process({_, [options], _}) do
-    Myspawn.createprocess
+    #Myspawn.createprocess
     IO.puts "You want #{options} leading zeroes"
     IO.puts "Now lets try to compute a random string hash"
-    rand_string = random_string(10)
+    abc = :rand.uniform(40)
+    IO.puts "The length of the random string is "<>to_string(abc+10)
+    rand_string = random_string(abc+10)
     IO.puts "dhruvmhjn"<>rand_string
     IO.puts Base.encode16(:crypto.hash(:sha256, "dhruvmhjn"<>rand_string))
   end
