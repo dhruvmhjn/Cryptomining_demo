@@ -31,16 +31,16 @@ defmodule Example do
     hashed_srt = Base.encode16(:crypto.hash(:sha256, input_srt))
     IO.puts "SHA256, base 16 hash is: "<>hashed_srt
     regex = ~r/^0{#{k_value}}/
-    checkvalid(Regex.match?(regex,hashed_srt),input_srt)
+    checkvalid(Regex.match?(regex,hashed_srt),input_srt,hashed_srt)
     #process(,x,) MAKE THIS TAIL RECURSIVE, CANT CALL PROCESS 
     #process({_, [k_value], _})
   end
 
-  def checkvalid(true,input) do
+  def checkvalid(true,input,output) do
     IO.puts "VALID Bitcoin for string: #{input}"
   end
 
-  def checkvalid(false,_) do
+  def checkvalid(false,_,_) do
     IO.puts "Invalid Bitcoin"
   end
 
