@@ -7,7 +7,7 @@ defmodule Dos1.Mixfile do
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env==:prod,
-      escript: [main_module: Example],
+      escript: [main_module: God],
       deps: deps()
     ]
   end
