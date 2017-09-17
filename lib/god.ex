@@ -13,6 +13,7 @@ defmodule God do
             IO.puts "Matched IP value"
             Node.connect(@name)
             ClientMinerSup.begin(@name)
+            
             # Node.spawn_link(snode, ClientMinerSup,:"begin",[snode]) 
         else if Regex.match?(kregex,argumentstr) do
             IO.puts "Matched K value"
@@ -23,18 +24,29 @@ defmodule God do
             :global.register_name(@name, self())
             spid = Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])
             #ServMinerSup.init(cmdarg,snode)
-            receive do
-                {:EXIT, pid, reason} ->
-                  :timer.sleep(500)
-                  IO.puts "Child process exits with reasson #{reason}" 
-                #   if pid === spid do
-                #     Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode]) 
-                  end
+            receiver
+            
         else
             IO.puts "Invalid input"
         end 
         end
         
         end
+    end
+
+    def receiver do
+        receive do
+            {:hello, cpid} ->
+
+                send cpid, {:k_valmsg, argumentstr}
+
+
+            {:EXIT, pid, reason} ->
+              :timer.sleep(500)
+              IO.puts "Child process exits with reasson #{reason}" 
+            #   if pid === spid do
+            #     Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode]) 
+              end
+        receiver
     end
 end
