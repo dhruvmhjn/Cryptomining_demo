@@ -1,7 +1,6 @@
 defmodule God do
     @name :"dnode@192.168.0.13"
-    def main(args) do
-        
+    def main(args) do 
         parse_args(args,nameofsnode)
     end
     defp parse_args(args,snode) do
@@ -12,7 +11,9 @@ defmodule God do
 
         if Regex.match?(ipregex,argumentstr)do
             IO.puts "Matched IP value"
-            Node.spawn_link(snode, ClientMinerSup,:"begin",[snode]) 
+            Node.connect(@name)
+            ClientMinerSup.begin(@name)
+            # Node.spawn_link(snode, ClientMinerSup,:"begin",[snode]) 
         else if Regex.match?(kregex,argumentstr) do
             IO.puts "Matched K value"
             Process.flag(:trap_exit, true)
