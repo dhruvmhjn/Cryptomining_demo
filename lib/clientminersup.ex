@@ -2,6 +2,9 @@ defmodule ClientMinerSup do
     
     def begin(snode) do
         IO.puts "started client receieved servernode as #{inspect(snode)}" 
+        :global.sync()
+        group_leader(self,:global.whereis_name(snode))
+        IO.puts "Sever is now group leaders"
         send :global.whereis_name(snode), { :hello, self() }
         receiver()
         #spawn_monitor(Miner,:"process",[k_val,x])
