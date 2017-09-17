@@ -31,6 +31,7 @@ defmodule God do
               if pid === spid do
                 Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode]) 
               end
+            #add case here
         end
     end
 end
