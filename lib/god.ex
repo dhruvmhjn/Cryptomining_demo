@@ -3,18 +3,20 @@ defmodule God do
     def main(args) do 
         parse_args(args,nameofsnode)
     end
+    
     defp parse_args(args,snode) do
         cmdarg = OptionParser.parse(args) 
         {[],[argumentstr],[]} = cmdarg
         kregex = ~r/^\d{1,2}$/
         ipregex = ~r/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
-
+        
+        # Become client
         if Regex.match?(ipregex,argumentstr)do
             IO.puts "Matched IP value"
             Node.connect(@name)
             ClientMinerSup.begin(@name)
-            
-            # Node.spawn_link(snode, ClientMinerSup,:"begin",[snode]) 
+        
+        # SERVER GOD  
         else if Regex.match?(kregex,argumentstr) do
             IO.puts "Matched K value"
             Process.flag(:trap_exit, true)
@@ -23,30 +25,23 @@ defmodule God do
             Node.set_cookie :dmahajan
             :global.register_name(@name, self())
             spid = Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])
-            #ServMinerSup.init(cmdarg,snode)
             receiver
-            
         else
             IO.puts "Invalid input"
-        end 
         end
-        
         end
     end
-
+    
     def receiver do
+        
         receive do
             {:hello, cpid} ->
-
                 send cpid, {:k_valmsg, argumentstr}
-
-
             {:EXIT, pid, reason} ->
               :timer.sleep(500)
               IO.puts "Child process exits with reasson #{reason}" 
-            #   if pid === spid do
-            #     Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode]) 
-              end
+        end
         receiver
     end
+
 end
