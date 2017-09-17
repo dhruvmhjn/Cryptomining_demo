@@ -1,6 +1,6 @@
 defmodule God do
     def main(args) do
-        args |> parse_args #|> ServMinerSup.init()
+        args |> parse_args 
     end
 
     defp parse_args(args) do
@@ -13,11 +13,11 @@ defmodule God do
             IO.puts "Matched IP value"
         else if Regex.match?(kregex,argumentstr) do
             IO.puts "Matched K value"
-            
+            ServMinerSup.init(cmdarg)
         else
             IO.puts "Invalid input"
         end 
         end
-        #cmdarg
+       
     end
 end
