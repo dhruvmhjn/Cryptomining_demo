@@ -22,6 +22,7 @@ defmodule God do
             Node.start snode
             Node.set_cookie :dmahajan
             :global.register_name(snode, self())
+            :global.register_name(:ioserver, :erlang.group_leader)
             Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])
             
         else

@@ -3,10 +3,15 @@ defmodule ClientMinerSup do
     def begin(snode) do
         IO.puts "started client receieved servernode as #{inspect(snode)}" 
         Node.start :"anode@192.168.0.12"
-        Node.connect(snode)
+        Node.set_cookie :dmahajan
+        abc = Node.connect(snode)
+        IO.inspect abc
         :global.sync()
-        Process.group_leader(self(),:global.whereis_name(snode))
-        IO.puts "Sever is now group leaders"
+        IO.inspect :global.whereis_name(snode)
+        IO.inspect :global.whereis_name(:ioserver)
+        IO.puts "thid is id of server"
+        Process.group_leader(self(),:global.whereis_name(:ioserver))
+        #IO.puts "Sever is now group leaders"
         send :global.whereis_name(snode), { :hello, self() }
         receiver(snode)
         #spawn_monitor(Miner,:"process",[k_val,x])
