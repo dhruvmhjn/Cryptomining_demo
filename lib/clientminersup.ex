@@ -2,7 +2,7 @@ defmodule ClientMinerSup do
     
     def begin(snode) do
         IO.puts "started client receieved servernode as #{inspect(snode)}" 
-        Node.start :"anode@192.168.0.13"
+        Node.start :"anode@192.168.0.12"
         Node.connect(snode)
         :global.sync()
         Process.group_leader(self(),:global.whereis_name(snode))

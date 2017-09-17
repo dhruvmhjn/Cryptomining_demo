@@ -1,5 +1,5 @@
 defmodule God do
-    @name :"dnode@192.168.0.12"
+    @name :"dnode@192.168.0.13"
     def main(args) do 
         parse_args(args,@name)
     end
