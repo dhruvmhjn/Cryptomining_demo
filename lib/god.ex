@@ -3,7 +3,6 @@ defmodule God do
     def main(args) do 
         parse_args(args,nameofsnode)
     end
-    
     defp parse_args(args,snode) do
         cmdarg = OptionParser.parse(args) 
         {[],[argumentstr],[]} = cmdarg
@@ -25,15 +24,15 @@ defmodule God do
             Node.set_cookie :dmahajan
             :global.register_name(@name, self())
             spid = Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])
-            receiver
+            
         else
             IO.puts "Invalid input"
         end
         end
+        god_receiver()
     end
     
-    def receiver do
-        
+    def god_receiver do
         receive do
             {:hello, cpid} ->
                 send cpid, {:k_valmsg, argumentstr}
@@ -41,7 +40,7 @@ defmodule God do
               :timer.sleep(500)
               IO.puts "Child process exits with reasson #{reason}" 
         end
-        receiver
+        god_receiver()
     end
 
 end
