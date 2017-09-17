@@ -1,6 +1,6 @@
 defmodule Miner do
   def process(k_value,x) do
-    length = :rand.uniform(25) 
+    length = :rand.uniform(10) 
     input_srt= "dhruvmhjn"<>Integer.to_string(x)<>Base.encode64(:crypto.strong_rand_bytes(length))
     hashed_srt = Base.encode16(:crypto.hash(:sha256, input_srt))
     regex = ~r/^0{#{k_value}}/
