@@ -7,7 +7,7 @@ defmodule ServMinerSup do
         #IO.puts "Start Miners"
         #Miner.process(k_val)
 
-        pid1 = Process.spawn(Miner,:"process",[k_val],[])
+        spawn(Miner,:"process",[k_val])
         #pid2 = spawn(Miner,:"process",[k_val])
     end
     def init({[],[],[]}) do
