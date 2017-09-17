@@ -12,7 +12,7 @@ defmodule God do
         # Become client
         if Regex.match?(ipregex,argumentstr)do
             IO.puts "Matched IP value"
-            ClientMinerSup.begin(temp_asnode)
+            ClientMinerSup.begin(argumentstr)
         # SERVER GOD  
         else if Regex.match?(kregex,argumentstr) do
             {:ok,[_,{mytuple,_,_}]}=:inet.getif()
