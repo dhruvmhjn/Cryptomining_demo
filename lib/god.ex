@@ -17,8 +17,7 @@ defmodule God do
         else if Regex.match?(kregex,argumentstr) do
             {:ok,[_,{mytuple,_,_}]}=:inet.getif()
             ipofsnode =to_string(:inet.ntoa(mytuple))
-            s_snode = "adnode@"<>ipofsnode
-            snode=String.to_atom(s_snode)
+            snode=String.to_atom("adnode@"<>ipofsnode)
             Process.flag(:trap_exit, true)
             IO.puts snode
             Node.start snode
