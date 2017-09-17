@@ -7,7 +7,7 @@ defmodule ServMinerSup do
                 IO.puts "MESSAGE RECEIVED: #{inspect msg}"
         end
     end
-    def init({[],[],[]},snode) do
+    def init({[],[],[]},_) do
              IO.puts "No k value received"
      end
     
