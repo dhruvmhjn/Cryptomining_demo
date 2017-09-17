@@ -3,14 +3,10 @@ defmodule God do
         Process.flag(:trap_exit, true)
         nameofsnode = :"dnode@192.168.0.13"
         Node.start nameofsnode
-        IO.inspect Node.self
+        #IO.inspect Node.self
         Node.set_cookie :dmahajan
         parse_args(args,nameofsnode)
-        receive do
-            {:EXIT, pid, reason} ->
-              :timer.sleep(500)
-              IO.puts "Child process exits with reasson #{reason}" 
-        end
+        
     end
     defp parse_args(args,snode) do
         cmdarg = OptionParser.parse(args) 
@@ -22,12 +18,19 @@ defmodule God do
             IO.puts "Matched IP value"
         else if Regex.match?(kregex,argumentstr) do
             IO.puts "Matched K value"
-            Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])
+            spid = Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])
             #ServMinerSup.init(cmdarg,snode)
         else
             IO.puts "Invalid input"
         end 
         end
-       
+        receive do
+            {:EXIT, pid, reason} ->
+              :timer.sleep(500)
+              IO.puts "Child process exits with reasson #{reason}" 
+              if pid === spid do
+                Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode]) 
+              end
+        end
     end
 end
