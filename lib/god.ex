@@ -7,7 +7,4 @@ defmodule God do
         cmdarg = OptionParser.parse(args)  
         cmdarg
     end
-
-
-
 end
