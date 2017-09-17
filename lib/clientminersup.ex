@@ -22,7 +22,8 @@ defmodule ClientMinerSup do
         IO.puts "tock in client"
         # k_val=5
         n_miners = Enum.to_list 1..500
-        Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,x]) end)
+        # Node.self is third argument, pass as string
+        Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,x,Node.self()]) end)
         end
         receiver(snode)
     end
