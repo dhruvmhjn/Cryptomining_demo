@@ -3,10 +3,10 @@ defmodule Miner do
   # def main(args) do
   #   args |> parse_args |> process
   # end
-  def callMiner(k) do
-    IO.inspect k
-    IO.puts "Miner called upon with k value #{k}"
-   end
+  # def callMiner(k) do
+  #   IO.inspect k
+  #   IO.puts "Miner called upon with k value #{k}"
+  #  end
 
   #  def process([]) do
   #    IO.puts "No arguments given"
@@ -15,10 +15,7 @@ defmodule Miner do
 
 
   def process(k_value) do
-    #IO.inspect k_value<>"in Procee"
     abc = :rand.uniform(40)
-    #IO.puts abc
-   
     rand_string = random_string(abc+10)
     input_srt= "dhruvmhjn"<>rand_string
     hashed_srt = Base.encode16(:crypto.hash(:sha256, input_srt))
