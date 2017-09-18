@@ -24,6 +24,11 @@ defmodule ClientMinerSup do
         n = System.schedulers_online*4 
         n_miners = Enum.to_list 1..n
         Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,x,Node.self()]) end)
+        after 1000 ->
+            if Process.alive?(:global.whereis_name(snode))do
+            else
+                exit(:lostserver)
+            end
         end
         receiver(snode)
     end
