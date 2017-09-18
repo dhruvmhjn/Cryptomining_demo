@@ -3,7 +3,8 @@ Group Members:
 1) Ashvini Patel, UFID: 47949297
 2) Dhruv Mahajan, UFID: 42111994
 
-Note: The distributed implementation of this program depends on the init.getif() system call. If the first IP address returned is not the address of the machine on the local network, no node can be named correctly. Hence nodes can’t connect. In such a case, the server needs to be given it’s correct IP.
+Note 1: The distributed implementation of this program depends on the init.getif() system call. If the first IP address returned is not the address of the machine on the local network, no node can be named correctly. Hence nodes can’t connect. In such a case, the server needs to be given it’s correct IP.
+Note 2: epmd -daemon command needs to be run before running the project
 
 1) Size of Work Unit
 	This has two subparts, first we determine the number of logical processors on any machine (any worker) with a system call. Next with extensive trial and error we determined the ideal numbers of miners/actors a single  logical core can handle. For this we looked at both the CPU utilization numbers and the time function/CPU time to real time ratio. After trying many combinations, we arrived at the minimum number of miners/workers per core that gave us a very high ratio. (~3.9 for a 4 core machine). For our implementation, we think that 4 to 5 workers (miners) per core or about 20 miners for a typical 4 core machine is that minimum number. We've tested this only for Intel Laptop processors (core i5/i7). So, our code scales the number of workers spawned on a node depending on the number of cores available to the Erlang VM.  
