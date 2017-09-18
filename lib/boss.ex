@@ -4,7 +4,7 @@ defmodule Boss do
         parse_args(args,@name)
     end
     defp parse_args(args,temp_asnode) do
-        temp_asnode
+        _ = temp_asnode
         cmdarg = OptionParser.parse(args) 
         {[],[argumentstr],[]} = cmdarg
         kregex = ~r/^\d{1,2}$/
@@ -17,9 +17,9 @@ defmodule Boss do
         
         # SERVER/BOSS  
         else if Regex.match?(kregex,argumentstr) do
-            {:ok,[{ip,_,_}|tail]}=:inet.getif()
-            [{ip2,_,_}|tail2]=tail
-            ipofsnode =to_string(:inet.ntoa(ip2))
+            {:ok,[{ip,_,_}|_]}=:inet.getif()
+            # [{ip2,_,_}|tail2]=tail
+            ipofsnode =to_string(:inet.ntoa(ip))
             snode=String.to_atom("adnode@"<>ipofsnode)
             Process.flag(:trap_exit, true)
             IO.puts snode
