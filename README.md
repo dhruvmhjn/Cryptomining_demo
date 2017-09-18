@@ -1,5 +1,8 @@
 # Dos1
 
+dhruvmhjnadnode@192.168.0.1413648kbMlw=	00000000539445806CFC40A81186C764B3A1E5FF7C80BFD29F1F2224890A74CB
+
+
 **TODO: Add description**
 
 Things to explore, Dhruv:
@@ -10,7 +13,7 @@ Things to explore, Dhruv:
 
 Ashvini's work:
                         
-1)Â ErActor                        
+1) ErActor                        
 2) Check no of zeroes. https://robots.thoughtbot.com/back-to-basics-regular-expressions
 3) Recurse
 
