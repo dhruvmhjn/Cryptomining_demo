@@ -15,16 +15,17 @@ defmodule ClientMinerSup do
         IO.puts "thid is id of server"
         Process.group_leader(self(),:global.whereis_name(:ioserver))
         send :global.whereis_name(snode), { :hello, self() }
-        receiver(snode)
+        receiver()
     end
-    def receiver(snode) do
+    def receiver() do
         receive do
         { :k_valmsg, k_val } ->
         IO.puts "tock in client"
         n = System.schedulers_online*4 
         n_miners = Enum.to_list 1..n
-        Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,x,Node.self()]) end)
+        lcnode = String.slice(to_string(Node.self),-3..-1)
+        Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,Integer.to_string(x),lcnode]) end)
         end
-        receiver(snode)
+        receiver()
     end
 end
