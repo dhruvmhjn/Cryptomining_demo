@@ -3,7 +3,7 @@ defmodule ClientMinerSup do
     def begin(ipofsnode) do
         {:ok,[{ip,_,_}|tail]}=:inet.getif()
         [{ip2,_,_}|tail2]=tail
-        ipofcnode =to_string(:inet.ntoa(ip))
+        ipofcnode =to_string(:inet.ntoa(ip2))
         cnode=String.to_atom("adnode@"<>ipofcnode)
         Node.start cnode
         Node.set_cookie :dmahajan
