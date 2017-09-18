@@ -2,17 +2,20 @@ Group Members:
 
 1) Ashvini Patel, UFID:
 2) Dhruv Mahajan, UFID: 42111994
-Note: The distributed implementation of this program depends on the init.getif() system call. If the first IP address returned is not the address of the machine on the local network, no node can be named correctly. Hence nodes can’t connect. In such a case, the server needs to be given it’s correct IP.
+
+NOTE: The distributed implementation of this program depends on the init.getif() system call. If the first IP 			address returned is not the address of the machine on the local network, no node can be named correctly. 		Hence nodes can’t connect. In such a case, the server needs to be given it’s correct IP.
 
 1) Size of Work Unit
+	
 	This has two subparts, first we determine the number of logical processors on any machine (any worker) with a system call. Next with extensive trial and error we determined the ideal numbers of miners/actors a single  logical core can handle. For this will looked at both the CPU utilization numbers and the time function/CPU time to real time ratio. After trying many combinations, we arrived at the minimum number of miners/workers per core that gave us a very high ratio. (3.9 for a 4 core machine). For our implementation, we think that 4 to 5 workers (miners) per core or about 20 miners for a typical 4 core machine is that minimum number. So, our code scales the number of workers spawned on a node  depending on the number of cores available to the Erlang VM  
 
-Moreover, by appending ID’s  and using a strong random byte generator in the workers’ input, we can say that the miners/actors will always work on separate problems. 
+	Moreover, by appending ID’s  and using a strong random byte generator in the workers’ input, we can say that the miners/actors will always work on separate problems. 
 
-Generation of Randon Strings:
-Each miner/actor is passed two strings, the first one is unique to the node it belongs to, i.e. the name of the node. And the second one is a number that is created when the worker is launched. To this String the worker adds a variable lenght random string. This insures that no two workers across nodes will be working on the same problem.
+Generation of Random Strings:
 
-Final Input Str: <GatorLink ID> + <Str 1: Node> + <Str 2: Worker Number> + <Variable length random string>
+	Each miner/actor is passed two strings, the first one is unique to the node it belongs to, i.e. the name of the node. And the second one is a number that is created when the worker is launched. To this String the worker adds a variable lenght random string. This insures that no two workers across nodes will be working on the same problem.
+
+	Final Input Str: <GatorLink ID> + <Str 1: Node> + <Str 2: Worker Number> + <Variable length random string>
 
 Note: The last part, ie <Variable lenght random string> changes everytime the worker calls itself.
 
