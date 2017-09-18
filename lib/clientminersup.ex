@@ -23,8 +23,17 @@ defmodule ClientMinerSup do
         IO.puts "tock in client"
         n = System.schedulers_online*4 
         n_miners = Enum.to_list 1..n
+<<<<<<< HEAD
         lcnode = String.slice(to_string(Node.self),-3..-1)
         Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,Integer.to_string(x),lcnode]) end)
+=======
+        Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,x,Node.self()]) end)
+        after 1000 ->
+            if Process.alive?(:global.whereis_name(snode))do
+            else
+                exit(:lostserver)
+            end
+>>>>>>> 79eeb33597bc988868abdaf673c01da00068cc9d
         end
         receiver()
     end
