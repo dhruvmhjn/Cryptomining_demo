@@ -29,15 +29,15 @@ This ratio is approximately 3.9 for machines with 4 logical threads. We have tes
 Found 2 coins with 8 leading zeros, by using a cluster of 3 machines each with 4 logical threads running for about 20 mins.
 
 
-Coin 1: 
-dhruvmhjnadnode@192.168.0.14174zcoeKF2UinOf1Q==	00000000AF276705318259FD80A0B3031E2F63785E4476B6FA456757031816D7
+Coin 1: dhruvmhjnadnode@192.168.0.14174zcoeKF2UinOf1Q==	00000000AF276705318259FD80A0B3031E2F63785E4476B6FA456757031816D7
 
 Coin 2: dhruvmhjnadnode@192.168.0.1413648kbMlw=	00000000539445806CFC40A81186C764B3A1E5FF7C80BFD29F1F2224890A74CB
 
-5) The largest number of working machines you were able to run your code
-with: Total of 4 machines. 3 were just workers, last one both a server and worker.
+Coin 3: dhruvmhjn0.133RWYutUAa8ioP4U6S1XZZayRuxuM=	00000000A0D4BA9EFE4428CCA10F5F368AF12C039DB12E1D6DF741E6FAEADFFA
+Coin 4: dhruvmhjn0.1562GqXI09+9j9uFrsKysD09NbmOqRo=	0000000044400118A3EE6060D48444A4229F583D2C30FC83FB8C8F75B4626073
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/dos1](https://hexdocs.pm/dos1).
+5) The largest number of working machines you were able to run your code with:
+
+Ans:  Total of 4 machines. 3 were just workers, last one both a server and worker.
+
 
