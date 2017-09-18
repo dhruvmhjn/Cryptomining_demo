@@ -1,13 +1,13 @@
-defmodule Dos1.Mixfile do
+defmodule Project1.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :dos1,
+      app: :project1,
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env==:prod,
-      escript: [main_module: God],
+      escript: [main_module: Boss],
       deps: deps()
     ]
   end

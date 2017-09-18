@@ -1,4 +1,4 @@
-defmodule God do
+defmodule Boss do
     @name "dnode@192.168.0.13"
     def main(args) do 
         parse_args(args,@name)
@@ -32,10 +32,10 @@ defmodule God do
             IO.puts "Invalid input"
         end
         end
-        god_receiver(argumentstr)
+        boss_receiver(argumentstr)
     end
     
-    def god_receiver(k) do
+    def boss_receiver(k) do
         receive do
             {:hello, cpid} ->
                 send cpid, {:k_valmsg, k}
@@ -43,7 +43,7 @@ defmodule God do
               :timer.sleep(500)
               IO.puts "Child process #{inspect(pid)} exits with reasson #{reason}" 
         end
-        god_receiver(k)
+        boss_receiver(k)
     end
 
 end
