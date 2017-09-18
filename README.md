@@ -1,5 +1,7 @@
-# Dos1
+Group Members:
 
+1) Ashvini Patel, UFID:
+2) Dhruv Mahajan, UFID: 42111994
 Note: The distributed implementation of this program depends on the init.getif() system call. If the first IP address returned is not the address of the machine on the local network, no node can be named correctly. Hence nodes can’t connect. In such a case, the server needs to be given it’s correct IP.
 
 1) Size of Work Unit
@@ -7,26 +9,32 @@ Note: The distributed implementation of this program depends on the init.getif()
 
 Moreover, by appending ID’s  and using a strong random byte generator in the workers’ input, we can say that the miners/actors will always work on separate problems. 
 
-Generation of 
+Generation of Randon Strings:
+Each miner/actor is passed two strings, the first one is unique to the node it belongs to, i.e. the name of the node. And the second one is a number that is created when the worker is launched. To this String the worker adds a variable lenght random string. This insures that no two workers across nodes will be working on the same problem.
+
+Final Input Str: <GatorLink ID> + <Str 1: Node> + <Str 2: Worker Number> + <Variable length random string>
+
+Note: The last part, ie <Variable lenght random string> changes everytime the worker calls itself.
 
 
-2)
+2) Results for running ./project1 4 (For ~30 Sec runtime only)
 
-3)
-By running code ./project1 5 on a machine with 4 logical threads.
 
-dhruv@dhruv-pc:~/Desktop/dos/dos1$ time ./dos1 5
+3) By running code ./project1 5 on a machine with 4 logical threads. RATIO: 3.9 (FOR 4 CORE MACHINE)
 
+Command: dhruv@dhruv-pc:~/Desktop/dos/dos1$ time ./dos1 5
+
+Time:
 real    1m2.598s
 user    4m2.892s
 sys     0m0.628s
-
 
 This ratio is approximately 3.9 for machines with 4 logical threads. We have tested this extensively.
 
 
 4)The coin with the most 0s.
-Found 2 coins with 8 leading zeros, by using a cluster of 3 machines each with 4 logical threads running for about 20 mins.
+
+Found 4 coins with 8 leading zeros, by using a cluster of 3 machines each with 4 logical threads running for about 2 hours.
 
 
 Coin 1: dhruvmhjnadnode@192.168.0.14174zcoeKF2UinOf1Q==	00000000AF276705318259FD80A0B3031E2F63785E4476B6FA456757031816D7
@@ -34,7 +42,9 @@ Coin 1: dhruvmhjnadnode@192.168.0.14174zcoeKF2UinOf1Q==	00000000AF276705318259FD
 Coin 2: dhruvmhjnadnode@192.168.0.1413648kbMlw=	00000000539445806CFC40A81186C764B3A1E5FF7C80BFD29F1F2224890A74CB
 
 Coin 3: dhruvmhjn0.133RWYutUAa8ioP4U6S1XZZayRuxuM=	00000000A0D4BA9EFE4428CCA10F5F368AF12C039DB12E1D6DF741E6FAEADFFA
+
 Coin 4: dhruvmhjn0.1562GqXI09+9j9uFrsKysD09NbmOqRo=	0000000044400118A3EE6060D48444A4229F583D2C30FC83FB8C8F75B4626073
+
 
 5) The largest number of working machines you were able to run your code with:
 
