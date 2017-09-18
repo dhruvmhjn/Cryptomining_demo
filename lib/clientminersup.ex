@@ -21,9 +21,8 @@ defmodule ClientMinerSup do
         receive do
         { :k_valmsg, k_val } ->
         IO.puts "tock in client"
-        # k_val=5
-        n_miners = Enum.to_list 1..500
-        # Node.self is third argument, pass as string
+        n = System.schedulers_online*4 
+        n_miners = Enum.to_list 1..n
         Enum.map(n_miners, fn(x)->Node.spawn_link(Node.self(), Miner,:"process",[k_val,x,Node.self()]) end)
         end
         receiver(snode)
