@@ -15,13 +15,14 @@ defmodule God do
             ClientMinerSup.begin(argumentstr)
         # SERVER GOD  
         else if Regex.match?(kregex,argumentstr) do
-            {:ok,[_,{mytuple,_,_}]}=:inet.getif()
+            {:ok,[{mytuple,_,_},_]}=:inet.getif()
             ipofsnode =to_string(:inet.ntoa(mytuple))
             snode=String.to_atom("adnode@"<>ipofsnode)
             Process.flag(:trap_exit, true)
             IO.puts snode
             Node.start snode
             Node.set_cookie :dmahajan
+            #:observer.start
             :global.register_name(snode, self())
             :global.register_name(:ioserver, :erlang.group_leader)
             Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])

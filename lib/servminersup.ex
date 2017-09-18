@@ -1,6 +1,7 @@
 defmodule ServMinerSup do
     def init({[],[k_val],[]},snode) do
-        n_miners = Enum.to_list 1..500
+        n = System.schedulers_online*4 
+        n_miners = Enum.to_list 1..n
         Enum.map(n_miners, fn(x)->Node.spawn_link(snode, Miner,:"process",[k_val,x,snode]) end) #spawn_monitor(Miner,:"process",[k_val,x])        
         receive do
             msg ->
