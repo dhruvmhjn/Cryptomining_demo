@@ -12,7 +12,7 @@ defmodule Boss do
         
         # Become client
         if Regex.match?(ipregex,argumentstr)do
-            IO.puts "Matched IP value"
+            # IO.puts "Matched IP value"
             ClientMinerSup.begin(argumentstr)
         
         # SERVER/BOSS  
@@ -22,7 +22,7 @@ defmodule Boss do
             ipofsnode =to_string(:inet.ntoa(ip))
             snode=String.to_atom("adnode@"<>ipofsnode)
             Process.flag(:trap_exit, true)
-            IO.puts snode
+            # IO.puts snode
             Node.start snode
             Node.set_cookie :dmahajan
             #:observer.start
@@ -31,7 +31,7 @@ defmodule Boss do
             Node.spawn_link(snode, ServMinerSup,:"init",[cmdarg,snode])
             
         else
-            IO.puts "Invalid input"
+            IO.puts "K value too large OR Invalid IP address"
         end
         end
         boss_receiver(argumentstr)

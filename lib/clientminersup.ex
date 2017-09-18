@@ -8,12 +8,13 @@ defmodule ClientMinerSup do
         Node.start cnode
         Node.set_cookie :dmahajan
         snode = String.to_atom("adnode@"<>ipofsnode)
-        abc = Node.connect(snode)
-        IO.inspect abc
+        # abc = 
+        Node.connect(snode)
+        # IO.inspect abc
         :global.sync()
-        IO.inspect :global.whereis_name(snode)
-        IO.inspect :global.whereis_name(:ioserver)
-        IO.puts "thid is id of server"
+        # IO.inspect :global.whereis_name(snode)
+        # IO.inspect :global.whereis_name(:ioserver)
+        # IO.puts "thid is id of server"
         Process.group_leader(self(),:global.whereis_name(:ioserver))
         send :global.whereis_name(snode), { :hello, self() }
         receiver()
@@ -21,7 +22,7 @@ defmodule ClientMinerSup do
     def receiver() do
         receive do
         { :k_valmsg, k_val } ->
-        IO.puts "tock in client"
+        # IO.puts "Client connected"
         n = System.schedulers_online*4 
         n_miners = Enum.to_list 1..n
         lcnode = String.slice(to_string(Node.self),-3..-1)
