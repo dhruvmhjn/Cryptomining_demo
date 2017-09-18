@@ -15,8 +15,9 @@ defmodule God do
             ClientMinerSup.begin(argumentstr)
         # SERVER GOD  
         else if Regex.match?(kregex,argumentstr) do
-            {:ok,[{mytuple,_,_},_]}=:inet.getif()
-            ipofsnode =to_string(:inet.ntoa(mytuple))
+            {:ok,[{ip,_,_}|tail]}=:inet.getif()
+            [{ip2,_,_}|tail2]=tail
+            ipofsnode =to_string(:inet.ntoa(ip))
             snode=String.to_atom("adnode@"<>ipofsnode)
             Process.flag(:trap_exit, true)
             IO.puts snode

@@ -1,8 +1,9 @@
 defmodule ClientMinerSup do
     
     def begin(ipofsnode) do
-        {:ok,[_,{mytuple,_,_}]}=:inet.getif()
-        ipofcnode =to_string(:inet.ntoa(mytuple))
+        {:ok,[{ip,_,_}|tail]}=:inet.getif()
+        [{ip2,_,_}|tail2]=tail
+        ipofcnode =to_string(:inet.ntoa(ip))
         cnode=String.to_atom("adnode@"<>ipofcnode)
         Node.start cnode
         Node.set_cookie :dmahajan
