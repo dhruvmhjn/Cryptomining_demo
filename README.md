@@ -1,7 +1,7 @@
 Group Members:
 
-1) Ashvini Patel, UFID: 47949297
-2) Dhruv Mahajan, UFID: 42111994
+1) Ashvini Patel
+2) Dhruv Mahajan
 
 <<<<<<< HEAD
 NOTE: The distributed implementation of this program depends on the init.getif() system call. If the first IP 			address returned is not the address of the machine on the local network, no node can be named correctly. 		Hence nodes can’t connect. In such a case, the server needs to be given it’s correct IP.
